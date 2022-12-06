@@ -1,0 +1,20 @@
+<q1:AuthnRequest 
+	ID="ZDc2OTljZTktMzQ5Yy00Mjc1LTg5Y2EtNWYwYmMyMGE2ZmE5" 
+	Version="2.0" 
+	IssueInstant="2022-12-01T18:54:15.4123381Z" 
+	Destination="https://login.max.gov/idp/profile/SAML2/Redirect/SSO" 
+	ForceAuthn="false" 
+	IsPassive="false" 
+	ProtocolBinding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" 
+	AssertionConsumerServiceURL="https://vltp.gsa.gov/Saml2/AssertionConsumerService" 
+	xmlns:q1="urn:oasis:names:tc:SAML:2.0:protocol">
+	<Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">
+		vltp.gsa.gov
+	</Issuer>
+	<Conditions xmlns="urn:oasis:names:tc:SAML:2.0:assertion">
+		vltp.gsa.gov
+		<AudienceRestriction>
+			<Audience xmlns="">vltp.gsa.gov</Audience>
+		</AudienceRestriction>
+	</Conditions>
+</q1:AuthnRequest>

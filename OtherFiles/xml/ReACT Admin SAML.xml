@@ -1,0 +1,83 @@
+<samlp :Response ID="_d98d5767-93c3-4b28-a97a-f2c7be415b9b"
+       InResponseTo="ncp0OqPas5RnHpTb6POZ2S11i1fQH+dU0uDyQYr6"
+       Version="2.0"
+       IssueInstant="2022-11-16T19:30:05.59Z"
+       Destination="https://resetdb-dev.dms.gsa.gov/reactadmin/samlconsumer.aspx"
+       xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
+  <saml :Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">GSASecAuthDevAdmin</saml:Issuer>
+  <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+    <SignedInfo>
+      <CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+      <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+      <Reference URI="#_d98d5767-93c3-4b28-a97a-f2c7be415b9b">
+        <Transforms>
+          <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+          <Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+            <InclusiveNamespaces PrefixList="#default samlp saml ds xs xsi"
+                                 xmlns="http://www.w3.org/2001/10/xml-exc-c14n#" />
+          </Transform>
+        </Transforms>
+        <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+        <DigestValue>/H5CS0Idf7fRZggmYjKCdY0/8ZBcgD6U+lY7quwW2/Y=</DigestValue>
+      </Reference>
+    </SignedInfo>
+    <SignatureValue>Ud5igNMsvaJbmI6QwBWTVcsqNkm/L6NAwZEbPbpwsVkx5T5u//qxu9JLZPGAYVAHhHIGF6IxoIyBoZQ1gn/fT5G6mLmZ4oyuMBG4h0eZKYk0TGjAg8+5ey6gT2a7h/y8Lfz+hADynGn4EO4I72NMUCoX74eDC8VbhoYH55U47Eu0DodU9MVcoo/+dhh4WIgxbZYp3YgBUbVzSs5uceGIF+kp/+lP+IBlLzHx6aJxM5PrtvqD7A3bh9g9ATIt5Ro2sWwXIYhN97LutkrRXHOR+1t5JKaL4D1MVtBx0STVXQ2fHCx9I/J1B0AruNqEhirMxMfTTVByUrnBHv/5kfvGOg==</SignatureValue>
+    <KeyInfo>
+      <X509Data>
+        <X509Certificate>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</X509Certificate>
+      </X509Data>
+    </KeyInfo>
+  </Signature>
+  <samlp:Status>
+    <samlp :StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success" />
+  </samlp:Status>
+  <saml :Assertion Version="2.0"
+        ID="_dc74bd6e-f38d-42f4-9259-d3695d5d3268"
+        IssueInstant="2022-11-16T19:30:05.59Z"
+        xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">
+    <saml:Issuer>GSASecAuthDevAdmin</saml:Issuer>
+    <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+      <SignedInfo>
+        <CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+        <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+        <Reference URI="#_dc74bd6e-f38d-42f4-9259-d3695d5d3268">
+          <Transforms>
+            <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+            <Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+              <InclusiveNamespaces PrefixList="#default saml ds xs xsi"
+                                   xmlns="http://www.w3.org/2001/10/xml-exc-c14n#" />
+            </Transform>
+          </Transforms>
+          <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+          <DigestValue>nqZxJK9u4CioWUvZwGLbSNSdwTd8x9qC625HQpe5Ycw=</DigestValue>
+        </Reference>
+      </SignedInfo>
+      <SignatureValue>lJzaMwqI9qtwz00h/TOM/OR72+wqoi69oExU52w+sl13TsHGER4gOSnq02j9oxVWp6povXVVMciWlJ01ThhcQ5yYhGFY5PDz4ls2ML20cp/Gyi8EePLg/gB8JUg1jh4HndSbtOMkU8cQo7b2+vFNpS10m2mTvDr2OJJFEtQVXJsVyuQ5zBQWnZn2oc3lCBNTizh2q64SviC5N4q+7kdaY8tKXdNGybi5e6pEDhHzQUDPJBYFVDi8+BRlvRK55bHv1sfiWxfh0qynUFnqeYsDaJqdHI+Fn8nShwm8rg6XBUJv+b35NPYRcOrwbf6qnQWE+ywDWFyKG672//sXhMNkrA==</SignatureValue>
+      <KeyInfo>
+        <X509Data>
+          <X509Certificate>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</X509Certificate>
+        </X509Data>
+      </KeyInfo>
+    </Signature>
+    <saml:Subject>
+      <saml :NameID Format="urn:oasis:names:tc:SAML:2.0:nameid-format:transient">lawrenceddeneault</saml:NameID>
+      <saml :SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+        <saml :SubjectConfirmationData NotOnOrAfter="2022-11-16T20:30:05.59Z"
+              Recipient="https://resetdb-dev.dms.gsa.gov/reactadmin/samlconsumer.aspx"
+              InResponseTo="ncp0OqPas5RnHpTb6POZ2S11i1fQH+dU0uDyQYr6" />
+      </saml:SubjectConfirmation>
+    </saml:Subject>
+    <saml :Conditions NotBefore="2022-11-16T19:25:05.59Z"
+          NotOnOrAfter="2022-11-16T20:30:05.59Z">
+      <saml:AudienceRestriction>
+        <saml:Audience>https://resetdb-dev.dms.gsa.gov/reactadmin/</saml:Audience>
+      </saml:AudienceRestriction>
+    </saml:Conditions>
+    <saml :AuthnStatement AuthnInstant="2022-11-16T19:30:05.59Z"
+          SessionIndex="ncp0OqPas5RnHpTb6POZ2S11i1fQH+dU0uDyQYr6">
+      <saml:AuthnContext>
+        <saml:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:AuthenticatedTelephony</saml:AuthnContextClassRef>
+      </saml:AuthnContext>
+    </saml:AuthnStatement>
+  </saml:Assertion>
+</samlp:Response>

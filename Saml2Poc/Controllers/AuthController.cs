@@ -54,16 +54,16 @@ namespace Saml2Poc.Controllers
             string encodedSamlResponse = String.Empty;
             if (Request.Form != null)
             {
-                Console.WriteLine();
-                Console.WriteLine($"{logSnippet} Request.Form[\"SamlResponse\"]): '{Request.Form["SamlResponse"]}'");
-                Console.WriteLine();
+                //Console.WriteLine();
+                //Console.WriteLine($"{logSnippet} Request.Form[\"SamlResponse\"]): '{Request.Form["SamlResponse"]}'");
+                //Console.WriteLine();
 
                 encodedSamlResponse = Request.Form["SamlResponse"];
+                SamlResponse samlResponse = new SamlResponse(encodedSamlResponse);
 
-
-                Console.WriteLine();
-                Console.WriteLine($"{logSnippet} (encodedSamlResponse): '{encodedSamlResponse}'");
-                Console.WriteLine();
+                //Console.WriteLine();
+                //Console.WriteLine($"{logSnippet} (encodedSamlResponse): '{encodedSamlResponse}'");
+                //Console.WriteLine();
             }
 
 

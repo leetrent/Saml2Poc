@@ -11,9 +11,11 @@ namespace Saml2Poc.Utils
         // XML Response Elements
         public static readonly string ElementNameForStatus = "saml2p:Status";
         public static readonly string ElementNameForAssertion = "saml2:Assertion";
+        public static readonly string ElementNameForSubject = "saml2:Subject";
         public static readonly string ElementNameForAuthnStatement = "saml2:AuthnStatement";
         public static readonly string ElementNameForAttributeStatement = "saml2:AttributeStatement";
         public static readonly string ElementNameForAttributeValue = "saml2:AttributeValue";
+        public static readonly string ElementNameForSubjectNameIdValue = "saml2:NameID";
 
         // XML Response Attributes
         public static readonly string AttributeNameForStatusCodeValue = "Value";

@@ -6,8 +6,7 @@ namespace Saml2Poc.Utils
 {
     public class SamlResponse
     {
-        //public string MaxSessionIndex { get; }
-        //public string MaxEmail { get; }
+        public string SubjectNameIdValue { get; } = String.Empty;
 
         public SamlResponse(string encodedSamlResponse)
         {
@@ -29,7 +28,7 @@ namespace Saml2Poc.Utils
             XmlElement xmlDocElement = xmlDoc.DocumentElement!;
 
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            // StatusCode
+            // Status > StatusCode
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////
             string statusCodeValue = extractStatusCodeValue(xmlDocElement);
             Console.WriteLine($"{logSnippet} (statusCodeValue): '{statusCodeValue}'");
@@ -47,24 +46,15 @@ namespace Saml2Poc.Utils
             }
 
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            // SessionIndex
+            // Assertion > Subject > NameID
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            //this.MaxSessionIndex = extractSessionIndexValue(xmlDocElement);
-            //if ( String.IsNullOrEmpty(this.MaxSessionIndex) || String.IsNullOrWhiteSpace(this.MaxSessionIndex))
-            //{
-            //    throw new Exception($"Saml2Response did not contain a '{Saml2Constants.AttributeNameForSessionIndex}' value.");
-            //}
+            this.SubjectNameIdValue = extractAssertionSubjectNameIdValue(xmlDocElement);
+            Console.WriteLine($"{logSnippet} ( SubjectNameIdValue): '{this.SubjectNameIdValue}'");
 
-            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            // MaxEmail
-            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            //this.MaxEmail = extractMaxEmailValue(xmlDocElement);
-            //if (String.IsNullOrEmpty(this.MaxEmail) || String.IsNullOrWhiteSpace(this.MaxEmail))
-            //{
-            //    throw new Exception($"Saml2Response did not contain a '{Saml2Constants.AttributeNameValueForMaxEmail}' value.");
-            //}
-
-            //Console.WriteLine(logSnippet + $"|{this.MaxEmail}|{statusCodeValue}|{this.MaxSessionIndex}|");
+            if (String.IsNullOrEmpty(this.SubjectNameIdValue) || String.IsNullOrWhiteSpace(this.SubjectNameIdValue))
+            {
+                throw new Exception($"Saml2Response did not contain a '{SamlConstants.ElementNameForSubjectNameIdValue}' value.");
+            }
         }
 
         private string extractStatusCodeValue(XmlElement xmlDocElement)
@@ -76,34 +66,16 @@ namespace Saml2Poc.Utils
             return xmlStatusCodeValueAttribute.Value;
         }
 
-        //private string extractSessionIndexValue(XmlElement xmlDocElement)
-        //{
-        //    XmlNodeList xmlAssertionNodeList = xmlDocElement.GetElementsByTagName(Saml2Constants.ElementNameForAssertion);
-        //    XmlNode xmlAssertionNode = xmlAssertionNodeList[0];
+        private string extractAssertionSubjectNameIdValue(XmlElement xmlDocElement)
+        {
+            XmlNodeList xmlAssertionNodeList = xmlDocElement.GetElementsByTagName(SamlConstants.ElementNameForAssertion);
+            XmlNode xmlAssertionNode = xmlAssertionNodeList[0]!;
 
-        //    XmlElement xmlAuthnStatementElement = xmlAssertionNode[Saml2Constants.ElementNameForAuthnStatement];
-        //    XmlAttribute xmlSessionIndexAttribute = xmlAuthnStatementElement.Attributes[Saml2Constants.AttributeNameForSessionIndex];
+            XmlElement xmlSubjectElement = xmlAssertionNode[SamlConstants.ElementNameForSubject]!;
+            XmlNode xmlNameIdNode = xmlSubjectElement.FirstChild!;
+            return xmlNameIdNode.InnerText;
 
-        //    return xmlSessionIndexAttribute.Value;
-        //}
-
-        //private string extractMaxEmailValue(XmlElement xmlDocElement)
-        //{
-        //    XmlNodeList xmlAssertionNodeList = xmlDocElement.GetElementsByTagName(Saml2Constants.ElementNameForAssertion);
-        //    XmlNode xmlAssertionNode = xmlAssertionNodeList[0];
-
-        //    XmlElement xmlAttributeStatementElement = xmlAssertionNode[Saml2Constants.ElementNameForAttributeStatement];
-        //    for (int ii = 0; ii < xmlAttributeStatementElement.ChildNodes.Count; ii++)
-        //    {
-        //        if (xmlAttributeStatementElement.ChildNodes[ii].Attributes[Saml2Constants.AttributeNameForName].Value.Equals(Saml2Constants.AttributeNameValueForMaxEmail))
-        //        {
-        //            XmlNode xmlAttributeNode = xmlAttributeStatementElement.ChildNodes[ii];
-        //            XmlElement xmlAttributeValueElement = xmlAttributeNode[Saml2Constants.ElementNameForAttributeValue];
-        //            return xmlAttributeValueElement.InnerText;
-        //        }
-        //    }
-        //    return null;
-        //}
+        }
 
         private void writeToLog(string decodedSamlResponse)
         {
